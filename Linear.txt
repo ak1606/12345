@@ -1,0 +1,24 @@
+public class LinearSearch {
+
+  public static int linearsearch(int[] array, int target)
+{
+for(int i=0;i< array.length;i++){
+if (array[i] == target){
+return i;
+}
+}
+return -1;
+}
+public static void main(Strings[] args){
+int[] numbers = (70,40,30,43,55};
+int target = 41;
+int index = linearsearch(numbers, target);
+if(index != -1)
+{
+sout("target found at index:"+ index);
+}
+else {
+sout("target not found in array");
+}
+}
+}

@@ -1,0 +1,42 @@
+public class QueueArray{
+int arr[];
+int rear =-1;
+int front=0;
+int size=0;
+{
+arr new int[5];
+}
+public void enqueue(int data)
+{
+if(size==5)
+{
+sout("queue is full!");
+}
+else
+{
+rear++;
+arr[rear]=data;
+size++;
+sout(arr[rear]+"added to queue");
+}
+}
+public void dequeue(){
+if(size==0)
+{
+sout("queue is empty");
+}
+else
+{
+sout("arr[front]+"deleted from queue");
+front++;
+size--;
+}
+}
+public static void main()
+{
+queueArray q = new QueueArray();
+q.enqueue(1);
+q.enqueue(23);
+q.dequeue();
+}
+}
