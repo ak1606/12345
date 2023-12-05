@@ -1,0 +1,30 @@
+library IEEE; 
+use IEEE.STD_LOGIC_1164.ALL; 
+use IEEE.std_logic_unsigned.ALL; 
+use IEEE.STD_LOGIC_arith.ALL; 
+entity counter is 
+Port ( clk : in STD_LOGIC; 
+rst : in STD_LOGIC; 
+mode : in STD_LOGIC; 
+count_op : out std_logic_vector(3 downto 0)); 
+end counter; 
+architecture Behavioral of counter is 
+signal count : std_logic_vector(3 downto 0); 
+begin 
+process(rst,clk) 
+begin 
+if rst = '1' then 
+count <= "0000"; 
+elsif clk = '1' and clk'event then 
+if mode='1' then 
+count <= count + '1'; 
+else 
+count <= count - '1'; 
+end if; 
+end if; 
+end process; 
+count_op <= count; 
+end Behavioral;
+
+
+
