@@ -1,0 +1,67 @@
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity fa_test is
+end fa_test;
+
+architecture Behavioral of fa_test is
+  component full_adder
+    port (
+      a    : in std_logic;
+      b    : in std_logic;
+      cin  : in std_logic;
+      sum  : out std_logic;
+      cout : out std_logic
+    );
+  end component;
+
+  signal a     : std_logic := '0';
+  signal b     : std_logic := '0';
+  signal cin   : std_logic := '0';
+  signal sum   : std_logic;
+  signal cout  : std_logic;
+
+begin
+  uut: full_adder port map (
+    a    => a,
+    b    => b,
+    cin  => cin,
+    sum  => sum,
+    cout => cout
+  );
+
+  stim_proc: process
+  begin
+    wait for 100 ns;
+    a <= '1';
+    b <= '0';
+    cin <= '0';
+    wait for 10 ns;
+    a <= '0';
+    b <= '1';
+    cin <= '0';
+    wait for 10 ns;
+    a <= '1';
+    b <= '1';
+    cin <= '0';
+    wait for 10 ns;
+    a <= '0';
+    b <= '0';
+    cin <= '1';
+    wait for 10 ns;
+    a <= '1';
+    b <= '0';
+    cin <= '1';
+    wait for 10 ns;
+    a <= '0';
+    b <= '1';
+    cin <= '1';
+    wait for 10 ns;
+    a <= '1';
+    b <= '1';
+    cin <= '1';
+    wait for 10 ns;
+  end process;
+  
+END;
